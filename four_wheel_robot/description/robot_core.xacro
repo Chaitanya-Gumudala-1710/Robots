@@ -18,11 +18,11 @@
     </material>
 
     <!-- Base link -->
-    <link name="dummy">
+    <link name="ground">
     </link>
 
     <joint name="chassis_joint" type="fixed">
-        <parent link="dummy"/>
+        <parent link="ground"/>
         <child link="base_link"/>
         <origin xyz="0.0 0 0" rpy="0 0 0"/>
     </joint>
