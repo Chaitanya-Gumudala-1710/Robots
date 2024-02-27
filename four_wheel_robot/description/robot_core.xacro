@@ -1,0 +1,190 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <material name="black">
+        <color rgba="0 0 0 1"/>
+    </material>
+
+    <material name="orange">
+        <color rgba="1 0.3 0.1 1"/>
+    </material>
+
+    <material name="white">
+        <color rgba="1 1 1 1"/>
+    </material>
+
+    <material name="blue">
+        <color rgba="0.2 0.2 1 1"/>
+    </material>
+
+    <!-- Base link -->
+    <link name="dummy">
+    </link>
+
+    <joint name="chassis_joint" type="fixed">
+        <parent link="dummy"/>
+        <child link="base_link"/>
+        <origin xyz="0.0 0 0" rpy="0 0 0"/>
+    </joint>
+
+
+    <!--Chassis link-->
+    <link name="base_link">
+        <inertial>
+            <origin xyz="0.0022562994604977526 -3.718208202509074e-17 0.02313298338740699" rpy="0 0 0"/>
+            <mass value="15.361234272141461"/>
+            <inertia ixx="0.226855" iyy="0.506045" izz="0.729278" ixy="-0.0" iyz="-0.0" ixz="0.000611"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find four_wheel_robot)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find four_wheel_robot)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+    <gazebo reference="chassis">
+        <material>Gazebo/White</material>
+        <self_collide>true</self_collide>
+    </gazebo>
+
+    <!-- Front right wheel -->
+    <joint name="front_right_joint" type="continuous">
+        <origin xyz="0.2 -0.185 0.015" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="front_right"/>
+        <axis xyz="0.0 1.0 0.0"/>
+    </joint>
+
+    <link name="front_right">
+        <inertial>
+            <origin xyz="5.551115123125783e-17 0.0029436383014599943 4.735795089416683e-16" rpy="0 0 0"/>
+            <mass value="0.39497369552190503"/>
+            <inertia ixx="0.000272" iyy="0.000525" izz="0.000272" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+        </inertial>
+        <visual>
+            <origin xyz="-0.2 0.185 -0.015" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find four_wheel_robot)/meshes/front_right.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="black"/>
+        </visual>
+        <collision>
+            <origin xyz="-0.2 0.185 -0.015" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find four_wheel_robot)/meshes/front_right.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+    <gazebo reference="front_right">
+        <material>Gazebo/Black</material>
+        <self_collide>true</self_collide>
+    </gazebo>
+
+    <!-- Front left wheel -->
+    <joint name="front_left_joint" type="continuous">
+        <origin xyz="0.2 0.185 0.015" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="front_left"/>
+        <axis xyz="0.0 1.0 0.0"/>
+    </joint>
+
+    <link name="front_left">
+        <inertial>
+            <origin xyz="1.6653345369377348e-16 -0.0029436383014598833 4.666406150377611e-16" rpy="0 0 0"/>
+            <mass value="0.3949736955219051"/>
+            <inertia ixx="0.000272" iyy="0.000525" izz="0.000272" ixy="0.0" iyz="0.0" ixz="0.0"/>
+        </inertial>
+        <visual>
+            <origin xyz="-0.2 -0.185 -0.015" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find four_wheel_robot)/meshes/front_left.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="black"/>
+        </visual>
+        <collision>
+            <origin xyz="-0.2 -0.185 -0.015" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find four_wheel_robot)/meshes/front_left.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+    <gazebo reference="front_left">
+        <material>Gazebo/Black</material>
+        <self_collide>true</self_collide>
+    </gazebo>
+
+    <!--Rear Right-->
+    <joint name="rear_right_joint" type="continuous">
+        <origin xyz="-0.2 -0.185 0.015" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="rear_right"/>
+        <axis xyz="0.0 1.0 0.0"/>
+    </joint>
+
+    <link name="rear_right">
+        <inertial>
+            <origin xyz="-5.551115123125783e-17 0.0029436383014599943 -6.938893903907228e-18" rpy="0 0 0"/>
+            <mass value="0.3949736955219051"/>
+            <inertia ixx="0.000272" iyy="0.000525" izz="0.000272" ixy="0.0" iyz="0.0" ixz="0.0"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.2 0.185 -0.015" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find four_wheel_robot)/meshes/rear_right.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="black"/>
+        </visual>
+        <collision>
+            <origin xyz="0.2 0.185 -0.015" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find four_wheel_robot)/meshes/rear_right.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <gazebo reference="rear_right">
+        <material>Gazebo/Black</material>
+        <self_collide>true</self_collide>
+    </gazebo>
+
+    <!--Rear Left-->
+    <joint name="rear_left_joint" type="continuous">
+        <origin xyz="-0.2 0.185 0.015" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="rear_left"/>
+        <axis xyz="0.0 1.0 0.0"/>
+    </joint>
+
+    <link name="rear_left">
+        <inertial>
+            <origin xyz="-5.551115123125783e-17 -0.0029436383014599943 -2.6020852139652106e-17" rpy="0 0 0"/>
+            <mass value="0.39497369552190503"/>
+            <inertia ixx="0.000272" iyy="0.000525" izz="0.000272" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.2 -0.185 -0.015" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find four_wheel_robot)/meshes/rear_left.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="black"/>
+        </visual>
+        <collision>
+            <origin xyz="0.2 -0.185 -0.015" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find four_wheel_robot)/meshes/rear_left.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+    <gazebo reference="rear_left">
+        <material>Gazebo/Black</material>
+        <self_collide>true</self_collide>
+    </gazebo>
+
+</robot>
