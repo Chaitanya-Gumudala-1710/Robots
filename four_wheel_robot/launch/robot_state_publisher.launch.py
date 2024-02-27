@@ -4,6 +4,7 @@ from launch import LaunchDescription
 from launch.substitutions import LaunchConfiguration
 from launch.actions import DeclareLaunchArgument
 from launch_ros.actions import Node
+from launch.conditions import IfCondition, UnlessCondition
 import xacro
 
 
@@ -15,7 +16,7 @@ def generate_launch_description():
     pkg_path = os.path.join(get_package_share_directory('four_wheel_robot'))
     xacro_file = os.path.join(pkg_path,'description','robot.urdf.xacro')
     robot_description_config = xacro.process_file(xacro_file)
-    
+    rviz_config_file = os.path.join(pkg_path, 'config', 'view_robot.rviz')
     # Create a robot_state_publisher node
     params = {'robot_description': robot_description_config.toxml(), 'use_sim_time': use_sim_time}
     node_robot_state_publisher = Node(
@@ -24,6 +25,33 @@ def generate_launch_description():
         output='screen',
         parameters=[params]
     )
+    gui_arg = DeclareLaunchArgument(
+        name='gui',
+        default_value='True'
+    )
+
+    show_gui = LaunchConfiguration('gui')
+    joint_state_publisher_node = Node(
+        condition=UnlessCondition(show_gui),
+        package='joint_state_publisher',
+        executable='joint_state_publisher',
+        name='joint_state_publisher'
+    )
+
+    joint_state_publisher_gui_node = Node(
+        condition=IfCondition(show_gui),
+        package='joint_state_publisher_gui',
+        executable='joint_state_publisher_gui',
+        name='joint_state_publisher_gui'
+    )
+    rviz_node = Node(
+        package='rviz2',
+        executable='rviz2',
+        name='rviz2',
+        arguments=['-d', rviz_config_file],
+        output='screen'
+    )
+
     
 
     # Launch!
@@ -33,7 +61,11 @@ def generate_launch_description():
             default_value='false',
             description='Use sim time if true'),
 
-        node_robot_state_publisher
+        node_robot_state_publisher,
+        gui_arg,
+        joint_state_publisher_node,
+        joint_state_publisher_gui_node,
+        rviz_node
     ])
 
 
