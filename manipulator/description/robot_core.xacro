@@ -1,4 +1,281 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot">
-    
+
+    <material name="blue">
+        <color rgba="0.2 0.2 1 1"/>
+    </material>
+    <material name="white">
+        <color rgba="1 1 1 1"/>
+    </material>
+
+    <link name="ground">
+    </link>
+
+    <!-- Base Link -->
+    <joint name="ground_link" type="fixed">
+        <parent link="ground"/>
+        <child link="base_link"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="base_link">
+        <inertial>
+            <origin xyz="0.0 -8.450499067001397e-18 0.02894198571643008" rpy="0 0 0"/>
+            <mass value="4.224326487885704"/>
+            <inertia ixx="0.004379" iyy="0.004379" izz="0.005692" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find manipulator)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find manipulator)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <!-- Link-1 -->
+    <joint name="joint_1" type="revolute">
+        <origin xyz="0.0 0.0 0.06" rpy="0 0 ${pi/2}"/>
+        <parent link="base_link"/>
+        <child link="link_1"/>
+        <axis xyz="0.0 0.0 1.0"/>
+        <limit upper="0.0" lower="-6.283185" effort="100" velocity="100"/>
+    </joint>
+
+    <link name="link_1">
+        <inertial>
+            <origin xyz="0.014366337834017008 2.035643706932433e-09 0.040949903773408125" rpy="0 0 0"/>
+            <mass value="4.726361665233612"/>
+            <inertia ixx="0.00426" iyy="0.007103" izz="0.007104" ixy="-0.0" iyz="0.0" ixz="5.5e-05"/>
+        </inertial>
+        <visual>
+            <origin xyz="-0.0 -0.0 -0.06" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find manipulator)/meshes/link_1.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <origin xyz="-0.0 -0.0 -0.06" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find manipulator)/meshes/link_1.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <!-- Link-2 --> 
+    <joint name="joint_2" type="revolute">
+        <origin xyz="0.07 0.0 0.04" rpy="0 0 0"/>
+        <parent link="link_1"/>
+        <child link="link_2"/>
+        <axis xyz="1.0 0.0 0.0"/>
+        <limit upper="1.570796" lower="-1.570796" effort="100" velocity="100"/>
+    </joint>
+
+    <link name="link_2">
+        <inertial>
+            <origin xyz="0.03852803500862258 -2.1986601327645872e-09 0.1302091178997748" rpy="0 0 0"/>
+            <mass value="8.83395641447123"/>
+            <inertia ixx="0.088014" iyy="0.089233" izz="0.005915" ixy="-0.0" iyz="0.0" ixz="0.002014"/>
+        </inertial>
+        <visual>
+            <origin xyz="-0.07 -0.0 -0.1" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find manipulator)/meshes/link_2.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <collision>
+            <origin xyz="-0.07 -0.0 -0.1" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find manipulator)/meshes/link_2.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <!-- Link-3 -->
+    <joint name="joint_3" type="revolute">
+        <origin xyz="0.0 -0.0 0.25" rpy="0 0 0"/>
+        <parent link="link_2"/>
+        <child link="link_3"/>
+        <axis xyz="-1.0 0.0 0.0"/>
+        <limit upper="1.570796" lower="-1.570796" effort="100" velocity="100"/>
+    </joint>
+
+    <link name="link_3">
+        <inertial>
+            <origin xyz="-0.03852803329150615 -2.5334221148255746e-09 0.13020911120662632" rpy="0 0 0"/>
+            <mass value="8.833955977601166"/>
+            <inertia ixx="0.088014" iyy="0.089233" izz="0.005915" ixy="0.0" iyz="0.0" ixz="-0.002014"/>
+        </inertial>
+        <visual>
+            <origin xyz="-0.07 0.0 -0.35" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find manipulator)/meshes/link_3.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <origin xyz="-0.07 0.0 -0.35" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find manipulator)/meshes/link_3.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <!-- Link-4 -->
+    <joint name="joint_4" type="revolute">
+        <origin xyz="0.0 0.0 0.25" rpy="0 0 0"/>
+        <parent link="link_3"/>
+        <child link="link_4"/>
+        <axis xyz="-1.0 0.0 0.0"/>
+        <limit upper="-1.570796" lower="1.570796" effort="100" velocity="100"/>
+    </joint>
+
+    <link name="link_4">
+        <inertial>
+            <origin xyz="0.04068764795127926 3.615985093574636e-09 0.012788853623318053" rpy="0 0 0"/>
+            <mass value="2.878162381100508"/>
+            <inertia ixx="0.002845" iyy="0.003158" izz="0.001986" ixy="0.0" iyz="-0.0" ixz="8e-06"/>
+        </inertial>
+        <visual>
+            <origin xyz="-0.07 0.0 -0.6" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find manipulator)/meshes/link_4.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <collision>
+            <origin xyz="-0.07 0.0 -0.6" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find manipulator)/meshes/link_4.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <!-- Link-5 -->
+    <joint name="joint_5" type="revolute">
+        <origin xyz="0.04 0.0 0.06" rpy="0 0 0"/>
+        <parent link="link_4"/>
+        <child link="link_5"/>
+        <axis xyz="0.0 -0.0 1.0"/>
+        <limit upper="6.283185" lower="0.0" effort="100" velocity="100"/>
+    </joint>
+
+    <link name="link_5">
+        <inertial>
+            <origin xyz="5.0056256362118745e-09 -0.0019008622594459013 0.040850859622040825" rpy="0 0 0"/>
+            <mass value="2.2350009368678165"/>
+            <inertia ixx="0.001713" iyy="0.001573" izz="0.001489" ixy="0.0" iyz="4e-06" ixz="0.0"/>
+        </inertial>
+        <visual>
+            <origin xyz="-0.11 0.0 -0.66" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find manipulator)/meshes/link_5.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <origin xyz="-0.11 0.0 -0.66" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find manipulator)/meshes/link_5.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <!-- Gripper -->
+    <joint name="joint_6" type="fixed">
+        <origin xyz="0.0 0.101614 -0.08" rpy="0 0 0"/>
+        <parent link="link_5"/>
+        <child link="gripper_base"/>
+    </joint>
+
+    <link name="gripper_base">
+        <inertial>
+            <origin xyz="7.340100749431144e-13 -0.1517134018813858 0.1251140234257938" rpy="0 0 0"/>
+            <mass value="0.8553625680727159"/>
+            <inertia ixx="0.000317" iyy="0.000501" izz="0.000356" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+        </inertial>
+        <visual>
+            <origin xyz="-0.11 -0.101614 -0.58" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find manipulator)/meshes/gripper_base.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+        <collision>
+            <origin xyz="-0.11 -0.101614 -0.58" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find manipulator)/meshes/gripper_base.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <!-- Fingers-->
+    <joint name="finger_joint_1" type="revolute">
+        <origin xyz="0.02 -0.171614 0.130114" rpy="0 0 0"/>
+        <parent link="gripper_base"/>
+        <child link="finger_1"/>
+        <axis xyz="0.0 0.0 -1.0"/>
+        <limit upper="0.0" lower="-1.570796" effort="100" velocity="100"/>
+    </joint>
+
+    <link name="finger_1">
+        <inertial>
+            <origin xyz="-0.0005254263740313847 -0.03529997590905862 -0.0049999948017884766" rpy="0 0 0"/>
+            <mass value="0.11283560382056941"/>
+            <inertia ixx="4.8e-05" iyy="6e-06" izz="4.5e-05" ixy="-1e-06" iyz="0.0" ixz="-0.0"/>
+        </inertial>
+        <visual>
+            <origin xyz="-0.13 0.07 -0.710114" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find manipulator)/meshes/finger_1.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+           
+        </visual>
+        <collision>
+            <origin xyz="-0.13 0.07 -0.710114" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find manipulator)/meshes/finger_1.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="finger_joint_2" type="revolute">
+        <origin xyz="-0.02 -0.171614 0.130114" rpy="0 0 0"/>
+        <parent link="gripper_base"/>
+        <child link="finger_2"/>
+        <axis xyz="0.0 0.0 -1.0"/>
+        <limit upper="1.570796" lower="0.0" effort="100" velocity="100"/>
+    </joint>
+
+    <link name="finger_2">
+        <inertial>
+            <origin xyz="0.0005254263791914238 -0.03529997590905841 -0.0049999948017884766" rpy="0 0 0"/>
+            <mass value="0.11283560382056937"/>
+            <inertia ixx="4.8e-05" iyy="6e-06" izz="4.5e-05" ixy="1e-06" iyz="0.0" ixz="0.0"/>
+        </inertial>
+        <visual>
+            <origin xyz="-0.09 0.07 -0.710114" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find manipulator)/meshes/finger_2.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="-0.09 0.07 -0.710114" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find manipulator)/meshes/finger_2.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+
+
+
 </robot>
