@@ -38,6 +38,9 @@
             </geometry>
         </collision>
     </link>
+    <gazebo reference="base_link">
+        <material>Gazebo/Blue</material>
+    </gazebo>
 
     <!-- Link-1 -->
     <joint name="joint_1" type="revolute">
@@ -68,6 +71,9 @@
             </geometry>
         </collision>
     </link>
+    <gazebo reference="link_1">
+        <material>Gazebo/White</material>
+    </gazebo>
 
     <!-- Link-2 --> 
     <joint name="joint_2" type="revolute">
@@ -98,6 +104,9 @@
             </geometry>
         </collision>
     </link>
+    <gazebo reference="link_2">
+        <material>Gazebo/Blue</material>
+    </gazebo>
 
     <!-- Link-3 -->
     <joint name="joint_3" type="revolute">
@@ -128,6 +137,9 @@
             </geometry>
         </collision>
     </link>
+    <gazebo reference="link_3">
+        <material>Gazebo/White</material>
+    </gazebo>
 
     <!-- Link-4 -->
     <joint name="joint_4" type="revolute">
@@ -158,6 +170,9 @@
             </geometry>
         </collision>
     </link>
+    <gazebo reference="link_4">
+        <material>Gazebo/Blue</material>
+    </gazebo>
 
     <!-- Link-5 -->
     <joint name="joint_5" type="revolute">
@@ -188,6 +203,9 @@
             </geometry>
         </collision>
     </link>
+    <gazebo reference="link_5">
+        <material>Gazebo/White</material>
+    </gazebo>
 
     <!-- Gripper -->
     <joint name="joint_6" type="fixed">
@@ -216,6 +234,9 @@
             </geometry>
         </collision>
     </link>
+    <gazebo reference="gripper_base">
+        <material>Gazebo/Blue</material>
+    </gazebo>
 
     <!-- Fingers-->
     <joint name="finger_joint_1" type="revolute">
@@ -246,6 +267,9 @@
             </geometry>
         </collision>
     </link>
+    <gazebo reference="finger_1">
+        <material>Gazebo/Black</material>
+    </gazebo>
 
     <joint name="finger_joint_2" type="revolute">
         <origin xyz="-0.02 -0.171614 0.130114" rpy="0 0 0"/>
@@ -274,8 +298,8 @@
             </geometry>
         </collision>
     </link>
-
-
-
+    <gazebo reference="finger_2">
+        <material>Gazebo/Black</material>
+    </gazebo>
 
 </robot>
