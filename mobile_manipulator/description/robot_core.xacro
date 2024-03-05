@@ -1,3 +1,164 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot">
+
+    <link name="ground">
+    </link>
+
+    <joint name="ground_link" type="fixed">
+        <parent link="ground"/>
+        <child link="cart"/>
+        <origin xyz="0 0 0.18" rpy="0 0 0"/>
+    </joint>
+
+    <link name="cart">
+        <inertial>
+            <origin xyz="-0.0015895397388042637 -0.9067441579010628 0.29660083486788547" rpy="0 0 0"/>
+            <mass value="236.0297241879078"/>
+            <inertia ixx="111.038709" iyy="38.19368" izz="98.071356" ixy="-0.231025" iyz="21.210554" ixz="0.150053"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/cart.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="black">
+                <color rgba="0 0 0 1"/> <!-- Black color with full opacity -->
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/cart.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+    <gazebo reference="cart">
+        <material>Gazebo/Grey</material>
+    </gazebo>
+
+    <!--Wheels-->
+    <!-- Front right wheel -->
+    <joint name="front_right_wheel_joint" type="continuous">
+        <origin xyz="0.3 -0.163182 -0.1" rpy="0 0 0"/>
+        <parent link="cart"/>
+        <child link="front_right_wheel"/>
+        <axis xyz="-1.0 0.0 0.0"/>
+    </joint>
+
+    <link name="front_right_wheel">
+        <inertial>
+            <origin xyz="-0.0027392080525899254 1.818181817325737e-07 0.0" rpy="0 0 0"/>
+            <mass value="2.9851743787310787"/>
+            <inertia ixx="0.012239" iyy="0.006838" izz="0.006838" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+        </inertial>
+        <visual>
+            <origin xyz="-0.3 0.163182 0.1" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/wheel_1.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="-0.3 0.163182 0.1" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/wheel_1.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+    <gazebo reference="front_right_wheel">
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+    <!--Rear right wheel-->
+    <joint name="rear_right_wheel_joint" type="continuous">
+        <origin xyz="0.3 -1.226818 -0.1" rpy="0 0 0"/>
+        <parent link="cart"/>
+        <child link="rear_right_wheel"/>
+        <axis xyz="-1.0 0.0 0.0"/>
+    </joint>
+
+    <link name="rear_right_wheel">
+        <inertial>
+            <origin xyz="-0.0027392080525899254 -1.818181822876852e-07 0.0" rpy="0 0 0"/>
+            <mass value="2.9851743787310787"/>
+            <inertia ixx="0.012239" iyy="0.006838" izz="0.006838" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+        </inertial>
+        <visual>
+            <origin xyz="-0.3 1.226818 0.1" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/wheel_2.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="-0.3 1.226818 0.1" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/wheel_2.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+    <gazebo reference="rear_right_wheel">
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+    <!--Front left wheel-->
+    <joint name="front_left_wheel_joint" type="continuous">
+        <origin xyz="-0.3 -0.163182 -0.1" rpy="0 0 0"/>
+        <parent link="cart"/>
+        <child link="front_left_wheel"/>
+        <axis xyz="-1.0 0.0 0.0"/>
+    </joint>
+
+    <link name="front_left_wheel">
+        <inertial>
+            <origin xyz="0.002739208052590092 1.8181818156604024e-07 0.0" rpy="0 0 0"/>
+            <mass value="2.9851743787310787"/>
+            <inertia ixx="0.012239" iyy="0.006838" izz="0.006838" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.3 0.163182 0.1" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/wheel_3.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0.3 0.163182 0.1" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/wheel_3.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+    <gazebo reference="front_left_wheel">
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+
+    <!-- Rear left wheel -->
+    <joint name="rear_left_wheel_joint" type="continuous">
+        <origin xyz="-0.3 -1.226818 -0.1" rpy="0 0 0"/>
+        <parent link="cart"/>
+        <child link="rear_left_wheel"/>
+        <axis xyz="-1.0 0.0 0.0"/>
+    </joint>
+
+    <link name="rear_left_wheel">
+        <inertial>
+            <origin xyz="0.002739208052590092 -1.81818181843596e-07 0.0" rpy="0 0 0"/>
+            <mass value="2.9851743787310787"/>
+            <inertia ixx="0.012239" iyy="0.006838" izz="0.006838" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.3 1.226818 0.1" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/wheel_4.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0.3 1.226818 0.1" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/wheel_4.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+    <gazebo reference="rear_left_wheel">
+        <material>Gazebo/Black</material>
+    </gazebo>
 </robot>
