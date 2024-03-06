@@ -1,6 +1,17 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot">
 
+
+   
+    <joint name="ground_link" type="fixed">
+        <parent link="ground"/>
+        <child link="cart"/>
+        <origin xyz="0 0 0.18" rpy="0 0 0"/>
+    </joint>
+
+    <link name="ground">
+    </link>
+
     <link name="cart">
         <inertial>
             <origin xyz="-0.0015895397388042637 -0.9067441579010628 0.29660083486788547" rpy="0 0 0"/>
@@ -160,4 +171,35 @@
         <mu1 value="0.001"></mu1>
         <mu2 value="0.001"></mu2>
     </gazebo>
+
+    <!--Basket-->
+    <joint name="basket_joint" type="fixed">
+        <origin xyz="0.0 -0.765223 0.6" rpy="0 0 0"/>
+        <parent link="cart"/>
+        <child link="basket_link"/>
+    </joint>
+
+    <link name="basket_link">
+        <inertial>
+            <origin xyz="0.0003367874890503231 -0.0009035016282807895 0.04026929343329555" rpy="0 0 0"/>
+            <mass value="235.5335761839034"/>
+            <inertia ixx="51.392071" iyy="12.587293" izz="62.459782" ixy="1.059027" iyz="0.016958" ixz="-0.006325"/>
+        </inertial>
+        <visual>
+            <origin xyz="-0.0 0.765223 -0.6" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/basket.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="-0.0 0.765223 -0.6" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/basket.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+    <gazebo reference="basket_link">
+        <material>Gazebo/Yellow</material>
+    </gazebo>
+    
 </robot>
