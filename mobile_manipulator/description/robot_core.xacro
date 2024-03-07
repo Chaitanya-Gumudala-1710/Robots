@@ -35,7 +35,7 @@
         </collision>
     </link>
     <gazebo reference="cart">
-        <material>Gazebo/Grey</material>
+        <material>Gazebo/DarkGrey</material>
     </gazebo>
 
     <!--Wheels-->

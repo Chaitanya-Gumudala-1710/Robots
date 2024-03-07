@@ -1,0 +1,571 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot">
+    <!--Arm Base One-->
+    <joint name="arm_one_base_joint" type="continuous">
+        <origin xyz="0.275 -0.675 0.07" rpy="0 0 0"/>
+        <parent link="basket_link"/>
+        <child link="arm_one_base"/>
+        <axis xyz="0.0 0.0 1.0"/>
+    </joint>
+
+    <link name="arm_one_base">
+        <inertial>
+            <origin xyz="0.003901886415030753 0.0039013982132951597 0.10649627581358978" rpy="0 0 0"/>
+            <mass value="13.026745993537949"/>
+            <inertia ixx="0.070087" iyy="0.070087" izz="0.01721" ixy="0.000202" iyz="-0.003334" ixz="-0.003334"/>
+        </inertial>
+        <visual>
+            <origin xyz="-0.275 1.440223 -0.67" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_base_one.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="-0.275 1.440223 -0.67" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_base_one.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+    <gazebo reference="arm_one_base">
+        <material>Gazebo/Grey</material>
+    </gazebo>
+
+    <!--Arm One Link-1-->
+    <joint name="arm_one_link_1_joint" type="revolute">
+        <origin xyz="-0.012653 -0.012654 0.196317" rpy="0 0 0"/>
+        <parent link="arm_one_base"/>
+        <child link="arm_one_link_1"/>
+        <axis xyz="-0.707107 -0.707107 0.0"/>
+        <limit upper="1.570796" lower="-1.570796" effort="100" velocity="100"/>
+    </joint>
+
+    <link name="arm_one_link_1">
+        <inertial>
+            <origin xyz="-0.00616047492680577 -0.006159958004014365 0.0875446979149832" rpy="0 0 0"/>
+            <mass value="10.764860341300317"/>
+            <inertia ixx="0.044356" iyy="0.044356" izz="0.013803" ixy="0.000376" iyz="-0.004023" ixz="-0.004023"/>
+        </inertial>
+        <visual>
+            <origin xyz="-0.262347 1.452877 -0.866317" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_one_link_1.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="-0.262347 1.452877 -0.866317" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_one_link_1.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+    <gazebo reference="arm_one_link_1">
+        <material>Gazebo/Grey</material>
+    </gazebo>
+    
+    <!--Arm One Link-2-->
+    <joint name="arm_one_link_2_joint" type="continuous">
+        <origin xyz="0.0 0.0 0.173683" rpy="0 0 0"/>
+        <parent link="arm_one_link_1"/>
+        <child link="arm_one_link_2"/>
+        <axis xyz="-0.0 0.0 1.0"/>
+    </joint>
+
+    <link name="arm_one_link_2">
+        <inertial>
+            <origin xyz="0.005007856265426325 0.005008367144988313 0.08828889236775361" rpy="0 0 0"/>
+            <mass value="11.210870222339885"/>
+            <inertia ixx="0.045004" iyy="0.045004" izz="0.015096" ixy="0.000238" iyz="-0.003834" ixz="-0.003834"/>
+        </inertial>
+        <visual>
+            <origin xyz="-0.262347 1.452877 -1.04" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_one_link_2.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="-0.262347 1.452877 -1.04" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_one_link_2.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+    <gazebo reference="arm_one_link_2">
+        <material>Gazebo/Grey</material>
+    </gazebo>
+
+    <!--Arm One Link-3-->
+    <joint name="arm_one_link_3_joint" type="revolute">
+        <origin xyz="0.0 0.0 0.173684" rpy="0 0 0"/>
+        <parent link="arm_one_link_2"/>
+        <child link="arm_one_link_3"/>
+        <axis xyz="-0.707107 -0.707107 -0.0"/>
+        <limit upper="1.570796" lower="-1.570796" effort="100" velocity="100"/>
+    </joint>
+    <link name="arm_one_link_3">
+        <inertial>
+            <origin xyz="-0.049933073374941794 0.03761264044355506 0.06190329955441132" rpy="0 0 0"/>
+            <mass value="10.764860340805493"/>
+            <inertia ixx="0.040835" iyy="0.032788" izz="0.028891" ixy="0.00792" iyz="-0.013514" ixz="0.007824"/>
+        </inertial>
+        <visual>
+            <origin xyz="-0.262347 1.452877 -1.213684" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_one_link_3.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="-0.262347 1.452877 -1.213684" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_one_link_3.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+    <gazebo reference="arm_one_link_3">
+        <material>Gazebo/Grey</material>
+    </gazebo>
+
+    <!--Arm One Link-4-->
+    <joint name="arm_one_link_4_joint" type="continuous">
+        <origin xyz="-0.086842 0.086842 0.122812" rpy="0 0 0"/>
+        <parent link="arm_one_link_3"/>
+        <child link="arm_one_link_4"/>
+        <axis xyz="0.5 -0.5 -0.707107"/>
+    </joint>
+
+    <link name="arm_one_link_4">
+        <inertial>
+            <origin xyz="-0.04915269704119091 0.03913620620612002 0.06242995512690164" rpy="0 0 0"/>
+            <mass value="11.210870222340164"/>
+            <inertia ixx="0.033752" iyy="0.041421" izz="0.029931" ixy="0.007655" iyz="-0.007779" ixz="0.013202"/>
+        </inertial>
+        <visual>
+            <origin xyz="-0.175505 1.366035 -1.336496" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_one_link_4.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="-0.175505 1.366035 -1.336496" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_one_link_4.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+    <gazebo reference="arm_one_link_4">
+        <material>Gazebo/Grey</material>
+    </gazebo>
+
+    <!--Arm One Link-5-->
+    <joint name="arm_one_link_5_joint" type="revolute">
+        <origin xyz="-0.086842 0.086842 0.122813" rpy="0 0 0"/>
+        <parent link="arm_one_link_4"/>
+        <child link="arm_one_link_5"/>
+        <axis xyz="-0.707107 -0.707107 -0.0"/>
+        <limit upper="1.570796" lower="-1.570796" effort="100" velocity="100"/>
+    </joint>
+
+    <link name="arm_one_link_5">
+        <inertial>
+            <origin xyz="-0.05574347579269892 0.06806364129886289 6.55336385158023e-08" rpy="0 0 0"/>
+            <mass value="10.764860341300317"/>
+            <inertia ixx="0.023578" iyy="0.034958" izz="0.04398" ixy="0.015465" iyz="-0.0" ixz="0.0"/>
+        </inertial>
+        <visual>
+            <origin xyz="-0.088663 1.279193 -1.459309" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_one_link_5.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="-0.088663 1.279193 -1.459309" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_one_link_5.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+    <gazebo reference="arm_one_link_5">
+        <material>Gazebo/Grey</material>
+    </gazebo>
+
+    <!--Arm One Gripper Hand-->
+    <joint name="arm_one_gripper_joint" type="continuous">
+        <origin xyz="-0.122813 0.122812 0.0" rpy="0 0 0"/>
+        <parent link="arm_one_link_5"/>
+        <child link="arm_one_gripper_hand"/>
+        <axis xyz="-0.707107 0.707107 -0.0"/>
+    </joint>
+
+    <link name="arm_one_gripper_hand">
+        <inertial>
+            <origin xyz="-0.020536609230121385 0.020537478322067315 6.126045426491089e-08" rpy="0 0 0"/>
+            <mass value="3.753420009685963"/>
+            <inertia ixx="0.004395" iyy="0.004395" izz="0.003847" ixy="-0.000763" iyz="-0.0" ixz="-0.0"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.03415 1.156381 -1.459309" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_one_gripper_hand.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0.03415 1.156381 -1.459309" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_one_gripper_hand.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+    <gazebo reference="arm_one_gripper_hand">
+        <material>Gazebo/FlatBlack</material>
+    </gazebo>
+
+    <!--Arm One Gripper Finger-1-->
+    <joint name="arm_one_finger_1_joint" type="revolute">
+        <origin xyz="-0.042426 0.06364 0.0" rpy="0 0 0"/>
+        <parent link="arm_one_gripper_hand"/>
+        <child link="arm_one_finger_1"/>
+        <axis xyz="0.0 0.0 -1.0"/>
+        <limit upper="1.570796" lower="0.0" effort="100" velocity="100"/>
+    </joint>
+
+    <link name="arm_one_finger_1">
+        <inertial>
+            <origin xyz="-0.03331130874275269 0.03255025529731581 6.126042606524607e-08" rpy="0 0 0"/>
+            <mass value="0.2379589519697882"/>
+            <inertia ixx="8.6e-05" iyy="9.5e-05" izz="0.000154" ixy="7.2e-05" iyz="-0.0" ixz="0.0"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.076576 1.092741 -1.459309" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_one_finger_1.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0.076576 1.092741 -1.459309" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_one_finger_1.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+    <gazebo reference="arm_one_finger_1">
+        <material>Gazebo/FlatBlack</material>
+    </gazebo>
+
+    <!--Arm One Gripper Finger-2-->
+    <joint name="arm_one_finger_2_joint" type="revolute">
+        <origin xyz="-0.063639 0.042427 0.0" rpy="0 0 0"/>
+        <parent link="arm_one_gripper_hand"/>
+        <child link="arm_one_finger_2"/>
+        <axis xyz="0.0 0.0 -1.0"/>
+        <limit upper="0.0" lower="-1.570796" effort="100" velocity="100"/>
+    </joint>
+    <link name="arm_one_finger_2">
+        <inertial>
+            <origin xyz="-0.03255038900964692 0.03331117503042291 6.126042917387053e-08" rpy="0 0 0"/>
+            <mass value="0.2379589519697882"/>
+            <inertia ixx="9.5e-05" iyy="8.6e-05" izz="0.000154" ixy="7.2e-05" iyz="0.0" ixz="0.0"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.097789 1.113954 -1.459309" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_one_finger_2.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0.097789 1.113954 -1.459309" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_one_finger_2.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+    <gazebo reference="arm_one_finger_2">
+        <material>Gazebo/FlatBlack</material>
+    </gazebo>
+
+    <!--Arm Base Two-->
+    <joint name="arm_two_base_joint" type="continuous">
+        <origin xyz="-0.275 0.675 0.07" rpy="0 0 0"/>
+        <parent link="basket_link"/>
+        <child link="arm_two_base"/>
+        <axis xyz="0.0 0.0 1.0"/>
+    </joint>
+
+    <link name="arm_two_base">
+        <inertial>
+            <origin xyz="-0.003901886468145266 -0.003902373843308285 0.10649628303554448" rpy="0 0 0"/>
+            <mass value="13.026746901554448"/>
+            <inertia ixx="0.070087" iyy="0.070087" izz="0.01721" ixy="0.000202" iyz="0.003334" ixz="0.003334"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.275 0.090223 -0.67" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_base_two.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0.275 0.090223 -0.67" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_base_two.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+    <gazebo reference="arm_two_base">
+        <material>Gazebo/Grey</material>
+    </gazebo>
+
+    <!--Arm Two Link-1-->
+    <joint name="arm_two_link_1_joint" type="revolute">
+        <origin xyz="0.012653 0.012653 0.196317" rpy="0 0 0"/>
+        <parent link="arm_two_base"/>
+        <child link="arm_two_link_1"/>
+        <axis xyz="-0.707107 -0.707107 -0.0"/>
+        <limit upper="1.570796" lower="-1.570796" effort="100" velocity="100"/>
+    </joint>
+
+    <link name="arm_two_link_1">
+        <inertial>
+            <origin xyz="0.006160475457504089 0.006159979232998228 0.08754469791560604" rpy="0 0 0"/>
+            <mass value="10.764860340805493"/>
+            <inertia ixx="0.044356" iyy="0.044356" izz="0.013803" ixy="0.000376" iyz="0.004023" ixz="0.004023"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.262347 0.07757 -0.866317" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_two_link_1.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0.262347 0.07757 -0.866317" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_two_link_1.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+    <gazebo reference="arm_two_link_1">
+        <material>Gazebo/Grey</material>
+    </gazebo>
+
+    <!--Arm Two Link-2-->
+    <joint name="arm_two_link_2_joint" type="continuous">
+        <origin xyz="0.0 0.0 0.173683" rpy="0 0 0"/>
+        <parent link="arm_two_link_1"/>
+        <child link="arm_two_link_2"/>
+        <axis xyz="0.0 0.0 -1.0"/>
+    </joint>
+
+    <link name="arm_two_link_2">
+        <inertial>
+            <origin xyz="-0.005007856265429156 -0.0050083453858699445 0.08828889236775495" rpy="0 0 0"/>
+            <mass value="11.210870222340164"/>
+            <inertia ixx="0.045004" iyy="0.045004" izz="0.015096" ixy="0.000238" iyz="0.003834" ixz="0.003834"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.262347 0.07757 -1.04" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_two_link_2.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0.262347 0.07757 -1.04" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_two_link_2.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+    <gazebo reference="arm_two_link_2">
+        <material>Gazebo/Grey</material>
+    </gazebo>
+
+    <!--Arm Two Link-3-->
+    <joint name="arm_two_link_3_joint" type="revolute">
+        <origin xyz="0.0 0.0 0.173684" rpy="0 0 0"/>
+        <parent link="arm_two_link_2"/>
+        <child link="arm_two_link_3"/>
+        <axis xyz="-0.707107 -0.707107 -0.0"/>
+        <limit upper="1.570796" lower="-1.570796" effort="100" velocity="100"/>
+    </joint>
+
+    <link name="arm_two_link_3">
+        <inertial>
+            <origin xyz="0.049933072999285455 -0.03761261830935009 0.06190330008438827" rpy="0 0 0"/>
+            <mass value="10.764860341300317"/>
+            <inertia ixx="0.040835" iyy="0.032788" izz="0.028891" ixy="0.00792" iyz="0.013514" ixz="-0.007824"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.262347 0.07757 -1.213684" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_two_link_3.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0.262347 0.07757 -1.213684" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_two_link_3.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+    <gazebo reference="arm_two_link_3">
+        <material>Gazebo/Grey</material>
+    </gazebo>
+    
+
+    <!--Arm Two Link-4-->
+    <joint name="arm_two_link_4_joint" type="continuous">
+        <origin xyz="0.086842 -0.086842 0.122812" rpy="0 0 0"/>
+        <parent link="arm_two_link_3"/>
+        <child link="arm_two_link_4"/>
+        <axis xyz="0.5 -0.5 0.707107"/>
+    </joint>
+
+    <link name="arm_two_link_4">
+        <inertial>
+            <origin xyz="0.03913633991844864 -0.04915254156974816 0.06242995512690208" rpy="0 0 0"/>
+            <mass value="11.210870222339885"/>
+            <inertia ixx="0.041421" iyy="0.033752" izz="0.029931" ixy="0.007655" iyz="0.013202" ixz="-0.007779"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.175505 0.164412 -1.336496" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_two_link_4.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0.175505 0.164412 -1.336496" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_two_link_4.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+    <gazebo reference="arm_two_link_4">
+        <material>Gazebo/Grey</material>
+    </gazebo>
+    
+
+    <!--Arm Two Link-5-->
+    <joint name="arm_two_link_5_joint" type="revolute">
+        <origin xyz="0.086842 -0.086842 0.122813" rpy="0 0 0"/>
+        <parent link="arm_two_link_4"/>
+        <child link="arm_two_link_5"/>
+        <axis xyz="0.707107 0.707107 -0.0"/>
+        <limit upper="0.0" lower="-3.141593" effort="100" velocity="100"/>
+    </joint>
+
+    <link name="arm_two_link_5">
+        <inertial>
+            <origin xyz="0.0680637750119144 -0.05574332032141305 5.623709742330618e-08" rpy="0 0 0"/>
+            <mass value="10.764860340805493"/>
+            <inertia ixx="0.034958" iyy="0.023578" izz="0.04398" ixy="0.015465" iyz="0.0" ixz="-0.0"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.088663 0.251254 -1.459309" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_two_link_5.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0.088663 0.251254 -1.459309" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_two_link_5.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+    <gazebo reference="arm_two_link_5">
+        <material>Gazebo/Grey</material>
+    </gazebo>
+
+    <!--Arm Two Gripper Hand-->
+    <joint name="arm_two_gripper_joint" type="continuous">
+        <origin xyz="0.122813 -0.122812 0.0" rpy="0 0 0"/>
+        <parent link="arm_two_link_5"/>
+        <child link="arm_two_gripper_hand"/>
+        <axis xyz="-0.707107 0.707107 -0.0"/>
+    </joint>
+
+    <link name="arm_two_gripper_hand">
+        <inertial>
+            <origin xyz="0.02053661444397 -0.020537461151137082 6.126041185439135e-08" rpy="0 0 0"/>
+            <mass value="3.753421943012861"/>
+            <inertia ixx="0.004395" iyy="0.004395" izz="0.003847" ixy="-0.000763" iyz="0.0" ixz="0.0"/>
+        </inertial>
+        <visual>
+            <origin xyz="-0.03415 0.374066 -1.459309" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_two_gripper_hand.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="-0.03415 0.374066 -1.459309" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_two_gripper_hand.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+    <gazebo reference="arm_two_gripper_hand">
+        <material>Gazebo/FlatBlack</material>
+    </gazebo>
+
+    <!--Arm Two Gripper Finger-1-->
+    <joint name="arm_two_finger_1_joint" type="revolute">
+        <origin xyz="0.063639 -0.042427 -0.0075" rpy="0 0 0"/>
+        <parent link="arm_two_gripper_hand"/>
+        <child link="arm_two_finger_1"/>
+        <axis xyz="-0.0 0.0 1.0"/>
+        <limit upper="1.570796" lower="0.0" effort="100" velocity="100"/>
+    </joint>
+
+    <link name="arm_two_finger_1">
+        <inertial>
+            <origin xyz="0.03255038900964387 -0.03331115327130607 6.126042673137988e-08" rpy="0 0 0"/>
+            <mass value="0.2379589519697882"/>
+            <inertia ixx="9.5e-05" iyy="8.6e-05" izz="0.000154" ixy="7.2e-05" iyz="0.0" ixz="0.0"/>
+        </inertial>
+        <visual>
+            <origin xyz="-0.097789 0.416493 -1.451809" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_two_finger_1.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="-0.097789 0.416493 -1.451809" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_two_finger_1.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+    <gazebo reference="arm_two_finger_1">
+        <material>Gazebo/FlatBlack</material>
+    </gazebo>
+        
+    <!--Arm Two Gripper Finger-2--> 
+    <joint name="arm_two_finger_2_joint" type="revolute">
+        <origin xyz="0.042426 -0.06364 -0.0075" rpy="0 0 0"/>
+        <parent link="arm_two_gripper_hand"/>
+        <child link="arm_two_finger_2"/>
+        <axis xyz="-0.0 0.0 1.0"/>
+        <limit upper="0.0" lower="-1.570796" effort="100" velocity="100"/>
+    </joint>
+
+    <link name="arm_two_finger_2">
+        <inertial>
+            <origin xyz="0.033311308742749665 -0.03255023353820019 6.126042695342448e-08" rpy="0 0 0"/>
+            <mass value="0.2379589519697882"/>
+            <inertia ixx="8.6e-05" iyy="9.5e-05" izz="0.000154" ixy="7.2e-05" iyz="0.0" ixz="0.0"/>
+        </inertial>
+        <visual>
+            <origin xyz="-0.076576 0.437706 -1.451809" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_two_finger_2.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="-0.076576 0.437706 -1.451809" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="file://$(find mobile_manipulator)/meshes/arm_two_finger_2.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+    <gazebo reference="arm_two_finger_2">
+        <material>Gazebo/FlatBlack</material>
+    </gazebo>
+
+</robot>
