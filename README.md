@@ -1,4 +1,4 @@
-![Screenshot from 2024-03-08 17-42-22](https://github.com/Chaitanya-Gumudala-1710/Robots/assets/84703770/ec20f2aa-94e0-4a44-bb3b-bf4b85956fe3)This repository is a collection of Universal Robot Description Format (URDF) files, of various robots I've designed while learning Robot Operating System (ROS).
+This repository is a collection of Universal Robot Description Format (URDF) files, of various robots I've designed while learning Robot Operating System (ROS).
 ## Getting Started
 
 ### Cloning the Repository
