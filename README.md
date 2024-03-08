@@ -44,7 +44,7 @@ ros2 launch manipulator manipulator_simulation.launch.py
 ## Mobile manipulator
 ### Features
 
-- **Dual Arms on a Cart:** The robot features two manipulator arms mounted on a mobile cart, providing versatility in handling various objects to tansport items from one place to.
+- **Dual Arms on a Cart:** The robot features two manipulator arms mounted on a mobile cart, providing versatility in handling various objects to tansport items from one place to another place.
 
 - **Autonomous Navigation:** Utilizing advanced navigation algorithms, the robot autonomously moves by avoiding obstacles and optimizing its path for efficient completion for the task.
 
