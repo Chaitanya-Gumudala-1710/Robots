@@ -1,4 +1,4 @@
-This repository is a collection of Universal Robot Description Format (URDF) files, of various robots I've designed while learning Robot Operating System (ROS).
+![Screenshot from 2024-03-08 17-42-22](https://github.com/Chaitanya-Gumudala-1710/Robots/assets/84703770/ec20f2aa-94e0-4a44-bb3b-bf4b85956fe3)This repository is a collection of Universal Robot Description Format (URDF) files, of various robots I've designed while learning Robot Operating System (ROS).
 ## Getting Started
 
 ### Cloning the Repository
@@ -24,3 +24,11 @@ ros2 launch differential_drive_robot differential_robot_simulation.launch.py
 ```
 ![Differential Drive Robot_1](differential_drive_robot/images/differential_drive_robot_rviz.png)
 ![Differential Drive Robot_2](differential_drive_robot/images/differential_drive_robot_gazebo.png)
+
+## Four wheel Drive Robot
+To see the simulation of the differential drive robot in gazebo and rviz
+```
+ros2 launch four_wheel_robot four_wheel_robot_simulation.launch.py 
+```
+![Four Wheel Robot 1](four_wheel_robot/images/four_wheel_robot_rviz.png)
+![Four Wheel Robot 2](four_wheel_robot/images/four_wheel_robot_gazebo.png)
