@@ -3,7 +3,17 @@ This repository is a collection of Universal Robot Description Format (URDF) fil
 
 ### Cloning the Repository
 
-To get started with the robots in this repository, you can clone it using the following steps:
+To get started with the robots in this repository to your src
 ```
 git clone https://github.com/Chaitanya-Gumudala-1710/Robots.git
+```
+## Building the Package
+Open a terminal and build the package
+```
+colcon build
+```
+
+## Source the package
+```
+source install/localsetup.bash
 ```
