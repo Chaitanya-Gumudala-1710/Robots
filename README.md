@@ -44,13 +44,11 @@ ros2 launch manipulator manipulator_simulation.launch.py
 ## Mobile manipulator
 ### Features
 
-- **Dual Arms on a Cart:** The robot features two manipulator arms mounted on a mobile cart, providing versatility in handling various objects during shopping.
+- **Dual Arms on a Cart:** The robot features two manipulator arms mounted on a mobile cart, providing versatility in handling various objects to tansport items from one place to.
 
-- **Autonomous Navigation:** Utilizing advanced navigation algorithms, the robot autonomously moves through the store, avoiding obstacles and optimizing its path for efficient shopping.
+- **Autonomous Navigation:** Utilizing advanced navigation algorithms, the robot autonomously moves by avoiding obstacles and optimizing its path for efficient completion for the task.
 
-- **Object Recognition and Grasping:** Equipped with computer vision capabilities, the robot can recognize and grasp a wide range of items, making it adept at helping users pick and place products.
-
-- **User-Friendly Interface:** Interact with the robot through a user-friendly interface, allowing you to input shopping lists, preferences, and destination points.
+- **Object Recognition and Grasping:** Equipped with computer vision capabilities, the robot can recognize and grasp a wide range of items, making it adept at helping pick and place items.
 
 To see the simulation of the mobile manipulator  in gazebo and rviz
 ```
