@@ -17,3 +17,9 @@ colcon build
 ```
 source install/localsetup.bash
 ```
+## Differential Drive Robot
+To see the simulation of the differential drive robot in gazebo and rviz
+```
+ros2 launch differential_drive_robot differential_robot_simulation.launch.py 
+```
+![Differential Drive Robot](differential_drive_robot/images/differential_drive_robot_rviz.png)
