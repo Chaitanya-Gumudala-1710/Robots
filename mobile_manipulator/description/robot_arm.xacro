@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot">
     <!--Arm Base One-->
-    <joint name="arm_one_base_joint" type="continuous">
+    <joint name="arm_one_base_joint" type="fixed">
         <origin xyz="0.275 -0.675 0.07" rpy="0 0 0"/>
         <parent link="basket_link"/>
         <child link="arm_one_base"/>
@@ -32,7 +32,7 @@
     </gazebo>
 
     <!--Arm One Link-1-->
-    <joint name="arm_one_link_1_joint" type="revolute">
+    <joint name="arm_one_link_1_joint" type="fixed">
         <origin xyz="-0.012653 -0.012654 0.196317" rpy="0 0 0"/>
         <parent link="arm_one_base"/>
         <child link="arm_one_link_1"/>
@@ -64,7 +64,7 @@
     </gazebo>
     
     <!--Arm One Link-2-->
-    <joint name="arm_one_link_2_joint" type="continuous">
+    <joint name="arm_one_link_2_joint" type="fixed">
         <origin xyz="0.0 0.0 0.173683" rpy="0 0 0"/>
         <parent link="arm_one_link_1"/>
         <child link="arm_one_link_2"/>
@@ -95,7 +95,7 @@
     </gazebo>
 
     <!--Arm One Link-3-->
-    <joint name="arm_one_link_3_joint" type="revolute">
+    <joint name="arm_one_link_3_joint" type="fixed">
         <origin xyz="0.0 0.0 0.173684" rpy="0 0 0"/>
         <parent link="arm_one_link_2"/>
         <child link="arm_one_link_3"/>
@@ -126,7 +126,7 @@
     </gazebo>
 
     <!--Arm One Link-4-->
-    <joint name="arm_one_link_4_joint" type="continuous">
+    <joint name="arm_one_link_4_joint" type="fixed">
         <origin xyz="-0.086842 0.086842 0.122812" rpy="0 0 0"/>
         <parent link="arm_one_link_3"/>
         <child link="arm_one_link_4"/>
@@ -157,7 +157,7 @@
     </gazebo>
 
     <!--Arm One Link-5-->
-    <joint name="arm_one_link_5_joint" type="revolute">
+    <joint name="arm_one_link_5_joint" type="fixed">
         <origin xyz="-0.086842 0.086842 0.122813" rpy="0 0 0"/>
         <parent link="arm_one_link_4"/>
         <child link="arm_one_link_5"/>
@@ -189,7 +189,7 @@
     </gazebo>
 
     <!--Arm One Gripper Hand-->
-    <joint name="arm_one_gripper_joint" type="continuous">
+    <joint name="arm_one_gripper_joint" type="fixed">
         <origin xyz="-0.122813 0.122812 0.0" rpy="0 0 0"/>
         <parent link="arm_one_link_5"/>
         <child link="arm_one_gripper_hand"/>
@@ -220,7 +220,7 @@
     </gazebo>
 
     <!--Arm One Gripper Finger-1-->
-    <joint name="arm_one_finger_1_joint" type="revolute">
+    <joint name="arm_one_finger_1_joint" type="fixed">
         <origin xyz="-0.042426 0.06364 0.0" rpy="0 0 0"/>
         <parent link="arm_one_gripper_hand"/>
         <child link="arm_one_finger_1"/>
@@ -252,7 +252,7 @@
     </gazebo>
 
     <!--Arm One Gripper Finger-2-->
-    <joint name="arm_one_finger_2_joint" type="revolute">
+    <joint name="arm_one_finger_2_joint" type="fixed">
         <origin xyz="-0.063639 0.042427 0.0" rpy="0 0 0"/>
         <parent link="arm_one_gripper_hand"/>
         <child link="arm_one_finger_2"/>
@@ -283,7 +283,7 @@
     </gazebo>
 
     <!--Arm Base Two-->
-    <joint name="arm_two_base_joint" type="continuous">
+    <joint name="arm_two_base_joint" type="fixed">
         <origin xyz="-0.275 0.675 0.07" rpy="0 0 0"/>
         <parent link="basket_link"/>
         <child link="arm_two_base"/>
@@ -314,7 +314,7 @@
     </gazebo>
 
     <!--Arm Two Link-1-->
-    <joint name="arm_two_link_1_joint" type="revolute">
+    <joint name="arm_two_link_1_joint" type="fixed">
         <origin xyz="0.012653 0.012653 0.196317" rpy="0 0 0"/>
         <parent link="arm_two_base"/>
         <child link="arm_two_link_1"/>
@@ -346,7 +346,7 @@
     </gazebo>
 
     <!--Arm Two Link-2-->
-    <joint name="arm_two_link_2_joint" type="continuous">
+    <joint name="arm_two_link_2_joint" type="fixed">
         <origin xyz="0.0 0.0 0.173683" rpy="0 0 0"/>
         <parent link="arm_two_link_1"/>
         <child link="arm_two_link_2"/>
@@ -377,7 +377,7 @@
     </gazebo>
 
     <!--Arm Two Link-3-->
-    <joint name="arm_two_link_3_joint" type="revolute">
+    <joint name="arm_two_link_3_joint" type="fixed">
         <origin xyz="0.0 0.0 0.173684" rpy="0 0 0"/>
         <parent link="arm_two_link_2"/>
         <child link="arm_two_link_3"/>
@@ -410,7 +410,7 @@
     
 
     <!--Arm Two Link-4-->
-    <joint name="arm_two_link_4_joint" type="continuous">
+    <joint name="arm_two_link_4_joint" type="fixed">
         <origin xyz="0.086842 -0.086842 0.122812" rpy="0 0 0"/>
         <parent link="arm_two_link_3"/>
         <child link="arm_two_link_4"/>
@@ -442,7 +442,7 @@
     
 
     <!--Arm Two Link-5-->
-    <joint name="arm_two_link_5_joint" type="revolute">
+    <joint name="arm_two_link_5_joint" type="fixed">
         <origin xyz="0.086842 -0.086842 0.122813" rpy="0 0 0"/>
         <parent link="arm_two_link_4"/>
         <child link="arm_two_link_5"/>
@@ -474,7 +474,7 @@
     </gazebo>
 
     <!--Arm Two Gripper Hand-->
-    <joint name="arm_two_gripper_joint" type="continuous">
+    <joint name="arm_two_gripper_joint" type="fixed">
         <origin xyz="0.122813 -0.122812 0.0" rpy="0 0 0"/>
         <parent link="arm_two_link_5"/>
         <child link="arm_two_gripper_hand"/>
@@ -505,7 +505,7 @@
     </gazebo>
 
     <!--Arm Two Gripper Finger-1-->
-    <joint name="arm_two_finger_1_joint" type="revolute">
+    <joint name="arm_two_finger_1_joint" type="fixed">
         <origin xyz="0.063639 -0.042427 -0.0075" rpy="0 0 0"/>
         <parent link="arm_two_gripper_hand"/>
         <child link="arm_two_finger_1"/>
@@ -537,7 +537,7 @@
     </gazebo>
         
     <!--Arm Two Gripper Finger-2--> 
-    <joint name="arm_two_finger_2_joint" type="revolute">
+    <joint name="arm_two_finger_2_joint" type="fixed">
         <origin xyz="0.042426 -0.06364 -0.0075" rpy="0 0 0"/>
         <parent link="arm_two_gripper_hand"/>
         <child link="arm_two_finger_2"/>
