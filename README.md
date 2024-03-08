@@ -26,9 +26,25 @@ ros2 launch differential_drive_robot differential_robot_simulation.launch.py
 ![Differential Drive Robot_2](differential_drive_robot/images/differential_drive_robot_gazebo.png)
 
 ## Four wheel Drive Robot
-To see the simulation of the differential drive robot in gazebo and rviz
+To see the simulation of the four wheel robot in gazebo and rviz
 ```
 ros2 launch four_wheel_robot four_wheel_robot_simulation.launch.py 
 ```
 ![Four Wheel Robot 1](four_wheel_robot/images/four_wheel_robot_rviz.png)
 ![Four Wheel Robot 2](four_wheel_robot/images/four_wheel_robot_gazebo.png)
+
+## Arm
+To see the simulation of the arm in gazebo and rviz
+```
+ros2 launch manipulator manipulator_simulation.launch.py 
+```
+![Manipulator 1](manipulator/images/manipulator.png)
+![Manipulator 2](manipulator/images/manipulator.png)
+
+## Mobile manipulator
+To see the simulation of the mobile manipulator  in gazebo and rviz
+```
+ros2 launch mobile_manipulator mobile_manipulator_simulation.launch.py 
+```
+![Mobile Manipulator 1](mobile_manipulator/images/mobile_manipulator_rviz.png)
+![Mobile Manipulator 2](mobile_manipulator/images/mobile_manipulator_gazebo.png)
