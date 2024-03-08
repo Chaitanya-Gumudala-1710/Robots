@@ -38,8 +38,8 @@ To see the simulation of the arm in gazebo and rviz
 ```
 ros2 launch manipulator manipulator_simulation.launch.py 
 ```
-![Manipulator 1](manipulator/images/manipulator.png)
-![Manipulator 2](manipulator/images/manipulator.png)
+![Manipulator 1](manipulator/images/manipulator_rviz.png)
+![Manipulator 2](manipulator/images/manipulator_gazebo.png)
 
 ## Mobile manipulator
 To see the simulation of the mobile manipulator  in gazebo and rviz
