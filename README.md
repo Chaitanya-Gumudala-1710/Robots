@@ -7,13 +7,13 @@ To get started with the robots in this repository to your src
 ```
 git clone https://github.com/Chaitanya-Gumudala-1710/Robots.git
 ```
-## Building the Package
+### Building the Package
 Open a terminal and build the package
 ```
 colcon build
 ```
 
-## Source the package
+### Source the package
 ```
 source install/localsetup.bash
 ```
