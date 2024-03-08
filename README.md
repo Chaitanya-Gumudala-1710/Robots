@@ -22,4 +22,5 @@ To see the simulation of the differential drive robot in gazebo and rviz
 ```
 ros2 launch differential_drive_robot differential_robot_simulation.launch.py 
 ```
-![Differential Drive Robot](differential_drive_robot/images/differential_drive_robot_rviz.png)
+![Differential Drive Robot_1](differential_drive_robot/images/differential_drive_robot_rviz.png)
+![Differential Drive Robot_2](differential_drive_robot/images/differential_drive_robot_gazebo.png)
